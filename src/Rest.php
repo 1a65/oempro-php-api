@@ -64,7 +64,12 @@ class Rest
         if(count($params)>0){
             if(isset($params['fields'])){
                 foreach($params['fields'] AS $k => $v){
-                    $params['fields[CustomField'.$k.']'] = $v;
+                    if(strtolower($command)=='subscriber.update'){
+                        $params['fields[CustomField'.$k.']'] = $v;
+                    }else{
+                        $params['CustomField'.$k.''] = $v;
+                    }
+
                 }
                 unset($params['fields']);
             }
@@ -74,8 +79,7 @@ class Rest
         $session = '&ApiKey=' . $this->auth->getApiKey();
 
         $this->response = file_get_contents($url = $this->url->getUrl() . $this->getBase($command) . $session .$stringParams);
-        echo $url;
-//        var_dump($this->response);
+
         if($return == 'array'){
             return $this->toArray();
         }
