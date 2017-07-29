@@ -1,0 +1,21 @@
+{
+  "name": "1a65/oempro-php-api",
+  "description": "Oempro API integration",
+  "license": "MIT",
+  "keywords": ["oempro","api"],
+  "authors": [
+    {
+      "name": "Raphael Giovanini",
+      "email": "raphaelgiovanini@gmail.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "1a65\\Oempro-php-api\\": "src"
+    }
+  }
+}
