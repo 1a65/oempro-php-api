@@ -8,7 +8,6 @@
 
 namespace Oempro;
 
-
 class Authentication
 {
     /**
@@ -26,11 +25,13 @@ class Authentication
         $this->setApiKey($apiKey);
     }
 
-    public function setApiKey($apiKey){
+    public function setApiKey($apiKey)
+    {
         $this->apiKey = $apiKey;
     }
 
-    public function getApiKey(){
+    public function getApiKey()
+    {
         return $this->apiKey;
     }
 

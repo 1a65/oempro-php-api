@@ -38,7 +38,7 @@ class Rest
      */
     public function __construct($urlApi, Authentication $auth)
     {
-        $this->url = new Url($urlApi);
+        $this->url  = new Url($urlApi);
         $this->auth = $auth;
     }
 
@@ -47,7 +47,8 @@ class Rest
      *
      * @return mixed
      */
-    public function getBase($command = ''){
+    public function getBase($command = '')
+    {
         return str_replace('[command]', $command, $this->base);
     }
 
@@ -61,13 +62,13 @@ class Rest
     public function run($command = '', $params = [], $return = 'obj')
     {
         $stringParams = '';
-        if(count($params)>0){
-            if(isset($params['fields'])){
-                foreach($params['fields'] AS $k => $v){
-                    if(strtolower($command)=='subscriber.update'){
-                        $params['fields[CustomField'.$k.']'] = $v;
-                    }else{
-                        $params['CustomField'.$k.''] = $v;
+        if (count($params) > 0) {
+            if (isset($params['fields'])) {
+                foreach ($params['fields'] as $k => $v) {
+                    if (strtolower($command) == 'subscriber.update') {
+                        $params['fields[CustomField' . $k . ']'] = $v;
+                    } else {
+                        $params['CustomField' . $k . ''] = $v;
                     }
 
                 }
@@ -78,9 +79,9 @@ class Rest
 
         $session = '&ApiKey=' . $this->auth->getApiKey();
 
-        $this->response = file_get_contents($url = $this->url->getUrl() . $this->getBase($command) . $session .$stringParams);
+        $this->response = file_get_contents($url = $this->url->getUrl() . $this->getBase($command) . $session . $stringParams);
 
-        if($return == 'array'){
+        if ($return == 'array') {
             return $this->toArray();
         }
         return $this->toObj();

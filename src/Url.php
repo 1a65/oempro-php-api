@@ -8,7 +8,6 @@
 
 namespace Oempro;
 
-
 class Url
 {
     protected $url;

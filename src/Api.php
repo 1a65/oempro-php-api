@@ -8,7 +8,6 @@
 
 namespace Oempro;
 
-
 class Api
 {
     /**
@@ -30,7 +29,8 @@ class Api
         $this->rest = new Rest($url, new Authentication($apiKey));
     }
 
-    public function get($type, $params, $output = 'obj'){
+    public function get($type, $params, $output = 'obj')
+    {
         return $this->rest->run($type, $params, $output);
     }
 }
