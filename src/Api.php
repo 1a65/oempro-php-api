@@ -31,6 +31,11 @@ class Api
 
     public function get($type, $params, $output = 'obj')
     {
-        return $this->rest->run($type, $params, $output);
+        return $this->rest->run($type, $params, $output, 'get');
+    }
+
+    public function post($type, $params, $output = 'obj')
+    {
+        return $this->rest->run($type, $params, $output, 'post');
     }
 }
