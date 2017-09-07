@@ -54,10 +54,10 @@ This SDK is intended to facilitate the integration with OEMPRO
 
 ## Manage campaigns with html content
 
-###1 - Create a email
+### 1 - Create a email
     $email = $oempro->post('Email.Create', [], 'array');
     
-###2 - Update a email with html content
+### 2 - Update a email with html content
     $email = $oempro->post('Email.Update', [
         'EmailID' => $email['EmailID'],
         'ValidateScope' => 'Campaign',
@@ -70,12 +70,12 @@ This SDK is intended to facilitate the integration with OEMPRO
         'HTMLContent' => $html
     ], 'array');
     
-###3 - Create a campaign
+### 3 - Create a campaign
     $campaign = $oempro->post('Campaign.Create', [
         'CampaignName' => 'Best price'
     ], 'array');
     
-###4 - Update a campaign schedule and list
+### 4 - Update a campaign schedule and list
     $campaign = $oempro->post('Campaign.Update', [
         'CampaignID' => $campaign['CampaignID'],
         'RelEmailID' => $email['EmailID'],
